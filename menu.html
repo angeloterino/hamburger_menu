@@ -3,8 +3,65 @@
     <head>
         <title>Hamburger menu</title>
         <link rel="stylesheet" href="./css/hamburger.css">
+        <style>
+          #navigation ul {
+            max-height: 0;
+            transition: max-height 0.15s ease-out;
+            overflow: hidden;
+            background: #d5d5d5;
+            text-align: right;
+          }
+
+          #navigation.show ul {
+            max-height: 500px;
+            transition: max-height 0.25s ease-in;
+          }
+          button.hamburger{
+            float: right;
+            outline: none;
+            border: 0;
+          }
+          #navigation {
+            clear: both;
+          }
+          #navigation ul li {
+            display: inline-block;
+            margin: 20px;
+          }
+          #navigation ul li a {
+            text-decoration: none;
+          }
+          #navigation ul li a:hover {
+            text-decoration: underline;
+          }
+        </style>
     </head>
     <body>
-        
+        <nav>
+            <button class="hamburger hamburger--spin" type="button"
+                    aria-label="Menu" aria-controls="navigation" aria-expanded="true/false">
+              <span class="hamburger-box">
+                <span class="hamburger-inner"></span>
+              </span>
+            </button>
+          
+            <div id="navigation">
+              <ul>
+                <li><a href="#">uno</a></li>
+                <li><a href="#">dos</a></li>
+                <li><a href="#">tres</a></li>
+                <li><a href="#">cuatro</a></li>
+                <li><a href="#">cinco</a></li>
+                <li><a href="#">seis</a></li>
+              </ul>
+            </div>
+        </nav>
+        <script languaje="javascript" src="./js/jquery.js"></script>
+        <script languaje="javascript">
+          $('button.hamburger').on('click',function(e){ 
+            $(this).toggleClass('is-active');
+            $('#navigation').toggleClass('show');
+          });
+        </script>
     </body>
 </html>
